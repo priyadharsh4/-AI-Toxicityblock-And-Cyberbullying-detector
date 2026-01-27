@@ -5,6 +5,5 @@ __pycache__/
 dist/
 build/
 .DS_Store
-*.pkl
 .env
 venv/
