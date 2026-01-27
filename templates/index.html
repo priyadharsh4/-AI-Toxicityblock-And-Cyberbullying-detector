@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚫 ToxicBlock AI - Cyberbullying Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles-js"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-virus"></i>
+                <span>TOXICBLOCK</span>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-item active" data-tab="analyzer">
+                    <i class="fas fa-robot"></i> ANALYZER
+                </button>
+                <button class="nav-item" data-tab="chat">
+                    <i class="fas fa-comments"></i> CHATBOX
+                </button>
+                <button class="nav-item" data-tab="voice">
+                    <i class="fas fa-microphone"></i> VOICE
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <!-- ANALYZER TAB -->
+        <section id="analyzer-tab" class="tab-content active">
+            <div class="hero-section">
+                <h1 class="hero-title">
+                    <span class="gradient-text">DETECT TOXICITY</span>
+                    <br>
+                    <span>INSTANTLY</span>
+                </h1>
+                <p class="hero-subtitle">AI-Powered Cyberbullying Protection with 99.8% Accuracy</p>
+            </div>
+
+            <div class="input-card">
+                <div class="input-wrapper">
+                    <textarea id="commentInput" placeholder="💬 Enter your comment here for instant AI analysis..." maxlength="500"></textarea>
+                    <div class="char-counter">
+                        <span id="charCount">0</span> / 500
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="analyzeBtn" class="btn btn-primary btn-xlarge">
+                        <i class="fas fa-brain"></i>
+                        <span>ANALYZE NOW</span>
+                    </button>
+                    <button id="voiceBtn" class="btn btn-secondary btn-xlarge">
+                        <i class="fas fa-microphone"></i>
+                        <span>VOICE INPUT</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Animations -->
+            <div id="voiceRecording" class="voice-animation hidden">
+                <div class="mic-container">
+                    <div class="mic-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="sound-waves">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <p class="voice-text">🎤 LISTENING... SPEAK NOW</p>
+            </div>
+
+            <div id="processing" class="processing-animation hidden">
+                <div class="spinner-large"></div>
+                <p>🤖 AI ANALYZING YOUR CONTENT</p>
+            </div>
+
+            <div id="resultCard" class="result-card hidden"></div>
+        </section>
+
+        <!-- CHATBOX TAB -->
+        <section id="chat-tab" class="tab-content">
+            <div class="chat-hero">
+                <h2 class="chat-title">🔥 LIVE CHAT ANALYSIS</h2>
+                <p class="chat-subtitle">Send messages instantly - AI blocks toxicity in real-time</p>
+            </div>
+
+            <div class="chat-container">
+                <div id="chatMessages" class="messages-area">
+                    <div class="welcome-message">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                👋 Welcome to ToxicBlock Chat!<br>
+                                Send any message and I'll analyze it instantly for toxicity.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" placeholder="💭 Type your message here..." maxlength="500">
+                    <button id="sendChatBtn" class="btn-send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VOICE TAB -->
+        <section id="voice-tab" class="tab-content">
+            <div class="chat-hero">
+                <h2 class="chat-title">🎙️ VOICE CHAT</h2>
+                <p class="chat-subtitle">Speak your message - AI blocks toxic speech in real-time</p>
+            </div>
+
+            <div class="chat-container">
+                <div id="voiceChatMessages" class="messages-area">
+                    <div class="welcome-message">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                🎤 Welcome to Voice Chat!<br>
+                                Click the microphone button and speak your message.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <button id="startVoiceBtn" class="btn-send">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Stats Footer -->
+    <footer class="stats-footer">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-chart-line"></i>
+                <div>99.8%<span>ACCURACY</span></div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-bolt"></i>
+                <div>&lt;1s<span>RESPONSE</span></div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>100K+<span>COMMENTS</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
