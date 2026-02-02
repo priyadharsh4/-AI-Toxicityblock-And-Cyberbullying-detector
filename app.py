@@ -80,7 +80,16 @@ def predict_toxic(text):
 @app.route('/')
 def index():
     return render_template('index.html')
-
+@app.route('/api/detect', methods=['POST'])
+def detect_toxicity():
+    data = request.json
+    text = data.get('text', '')
+    
+    # Load your model (use your existing variable name)
+    prediction = model_pipeline.predict([text])[0]  # or 'model.predict' 
+    is_toxic = int(prediction) == 1
+    
+    return jsonify({'toxic': bool(is_toxic)})
 @app.route('/predict', methods=['POST'])
 def predict():
     start_time = time.time()
